@@ -1,0 +1,32 @@
+plugins {
+    id 'org.springframework.boot' version '3.4.4'
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web:3.4.4'
+        implementation 'org.springframework.boot:spring-boot-starter-validation:3.4.4'
+        implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+        implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6'
+        implementation 'me.paulschwarz:spring-dotenv:4.0.0'
+        implementation 'org.springframework.kafka:spring-kafka:3.3.6'
+        implementation 'org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4'
+    }
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+}
+
+dependencies {
+    implementation project(":dataaccess")
+    implementation project(":businesslogic")
+}

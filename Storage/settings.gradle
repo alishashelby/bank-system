@@ -1,0 +1,5 @@
+rootProject.name = 'Storage'
+
+include 'src'
+include 'businesslogic'
+include 'dataaccess'
