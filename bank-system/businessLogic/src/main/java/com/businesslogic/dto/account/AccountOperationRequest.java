@@ -1,0 +1,28 @@
+package com.businesslogic.dto.account;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+
+@Schema(description = "Request object for account operations: withdraw/deposit")
+public class AccountOperationRequest {
+    @Schema(description = "Account ID", example = "1111", requiredMode = Schema.RequiredMode.REQUIRED)
+    @NotNull(message = "Account id field must be filled")
+    private Integer accountId;
+
+    @Schema(description = "User login", example = "alishashelby", requiredMode = Schema.RequiredMode.REQUIRED)
+    @NotBlank(message = "User login field must be filled")
+    private String userLogin;
+
+    @Schema(description = "Operation amount", example = "50.0", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Positive(message = "Value of amount must be positive")
+    private double amount;
+
+    public int getAccountId() { return this.accountId; }
+    public void setAccountId(int accountId) { this.accountId = accountId; }
+    public String getUserLogin() { return this.userLogin; }
+    public void setUserLogin(String userLogin) { this.userLogin = userLogin; }
+    public double getAmount() { return this.amount; }
+    public void setAmount(double amount) { this.amount = amount; }
+}
