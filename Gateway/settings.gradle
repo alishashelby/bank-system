@@ -1,0 +1,6 @@
+rootProject.name = 'Gateway'
+
+include 'dataaccess'
+include 'businesslogic'
+include 'presentation'
+include 'src'
